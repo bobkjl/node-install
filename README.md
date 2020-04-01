@@ -10,4 +10,4 @@ wget -N --no-check-certificate "https://raw.githubusercontent.com/bobkjl/node-in
 - 一键安装Rico付费版v2ray后端
 - 一键安装Rico免费版v2ray后端
 ### 作者
-Telegram:DerrickZH
+Telegram:[DerrickZH](https://t.me/DerrickZH "DerrickZH")
