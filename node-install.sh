@@ -1,6 +1,30 @@
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
+sh_ver="1.1.0"
+github="raw.githubusercontent.com/bobkjl/node-install/master"
+
+function Update(){
+    echo -e "当前版本为 [ ${sh_ver} ]，开始检测最新版本..."
+    sh_new_ver=$(wget --no-check-certificate -qO- "http://${github}/node-install.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1)
+    [[ -z ${sh_new_ver} ]] && echo -e "${Error} 检测最新版本失败 !" && menu
+    if [[ ${sh_new_ver} != ${sh_ver} ]]; then
+        echo -e "发现新版本[ ${sh_new_ver} ]，是否更新？[Y/n]"
+        read -p "(默认: y):" yn
+        [[ -z "${yn}" ]] && yn="y"
+        if [[ ${yn} == [Yy] ]]; then
+            wget -N --no-check-certificate http://${github}/node-install.sh && bash node-install.sh
+            echo -e "脚本已更新为最新版本[ ${sh_new_ver} ] !"
+        else
+            echo && echo "    已取消..." && echo
+        fi
+    else
+        echo -e "当前已是最新版本[ ${sh_new_ver} ] !"
+        sleep 5s
+    fi
+}
+
+
 function Docker(){
        curl -fsSL https://get.docker.com -o get-docker.sh  && \
        bash get-docker.sh
@@ -102,14 +126,15 @@ function v2ray2(){
         echo -e "安装完成"
 }
 function menu(){
+echo && echo -e " Rico v2ray 一键安装管理脚本 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 clear
-    echo "###       v2ray tool v1.1.0       ###"
+    echo "###        v2ray tool             ###"
     echo "###       By @DerrickZH           ###"
-    echo "###       Update: 2020-04-01      ###"
+    echo "###     Update: 2020-04-01        ###"
     echo ""
     echo -e "适用Rico v2ray后端"
     echo "---------------------------------------------------------------------------"
-
+    echo -e "[0] 检查更新"
     echo -e "[1] 安装Docker"
     echo -e "[2] 安装付费版"
     echo -e "[3] 安装免费版"
@@ -129,6 +154,9 @@ clear
 		
     elif [ "$opt" = "4" ]; then
         donate
+        
+    elif [ "$opt" = "0" ]; then
+        Update
     
     else
         echo -e "输入错误"
