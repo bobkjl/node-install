@@ -1,7 +1,7 @@
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
-function docker(){
+function Docker(){
        curl -fsSL https://get.docker.com -o get-docker.sh  && \
        bash get-docker.sh
        service docker restart 
@@ -117,7 +117,7 @@ function menu(){
     opt=0
      read opt
     if [ "$opt" = "1" ]; then
-        docker
+        Docker
 
     elif [ "$opt" = "2" ]; then
         v2ray1
