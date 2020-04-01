@@ -95,13 +95,13 @@ function v2ray1(){
     else [ "$opt" = "2" ];
         docker run -d --name=$name -e speedtest=0 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e LDNS=$LDNS -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME="$MYSQLDBNAME" -e MYSQLUSR="$MYSQLUSR" -e MYSQLPASSWD="$MYSQLPASSWD"  -e MYSQLPORT=3306 -e CF_Key=$CF_Key -e CF_Email=$CF_Email --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray_v3:go_pay
 
-        fi
+    fi
 
         echo -e "安装完成"
 
     else
-        echo -e "输入错误"
-        
+        echo -e "输入错误，5秒后自动返回。"
+
         sleep 5s
 
         v2ray1
