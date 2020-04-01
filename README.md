@@ -7,7 +7,9 @@ wget -N --no-check-certificate "https://raw.githubusercontent.com/bobkjl/node-in
 ```
 
 ### 功能说明
-- 一键安装Rico付费版v2ray后端
-- 一键安装Rico免费版v2ray后端
+- 一键安装Rico付费版/免费版v2ray后端
+- 一键安装TCP加速
+- 一键服务器测速
+- 一键服务器性能测试
 ### 作者
 Telegram:[DerrickZH](https://t.me/DerrickZH "DerrickZH")
