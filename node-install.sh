@@ -127,7 +127,7 @@ function v2ray2(){
 }
 function menu(){
 clear
-echo && echo -e " Rico v2ray 一键安装管理脚本 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
+echo && echo -e " Rico v2ray 一键安装管理脚本 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}"
     echo "###        v2ray tool             ###"
     echo "###       By @DerrickZH           ###"
     echo "###     Update: 2020-04-01        ###"
