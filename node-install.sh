@@ -101,7 +101,8 @@ function v2ray1(){
 
     else
         echo -e "输入错误"
-        bash ./node-install.sh
+        
+        v2ray1
     fi
 
 }
