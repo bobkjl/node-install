@@ -1,7 +1,7 @@
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
-sh_ver="1.1.0"
+sh_ver="1.1.1"
 github="raw.githubusercontent.com/bobkjl/node-install/master"
 
 function Update(){
@@ -132,10 +132,10 @@ echo && echo -e " Rico v2ray 一键安装管理脚本 ${Red_font_prefix}[v${sh_v
     echo "###       By @DerrickZH           ###"
     echo "###     Update: 2020-04-01        ###"
     echo ""
-    echo -e "适用Rico v2ray后端"
-    echo "---------------------------------------------------------------------------"
     echo -e "[0] 检查更新"
+    ————————————Docker管理————————————
     echo -e "[1] 安装Docker"
+    ————————————后端管理————————————
     echo -e "[2] 安装付费版"
     echo -e "[3] 安装免费版"
 #   echo -e "[4] 捐赠开发者"
