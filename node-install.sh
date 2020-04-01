@@ -102,6 +102,7 @@ function v2ray2(){
         echo -e "安装完成"
 }
 function menu(){
+clear
     echo "###       v2ray tool v1.1.0       ###"
     echo "###       By @DerrickZH           ###"
     echo "###       Update: 2020-04-01      ###"
