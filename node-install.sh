@@ -102,6 +102,8 @@ function v2ray1(){
     else
         echo -e "输入错误"
         
+        sleep 5s
+
         v2ray1
     fi
 
