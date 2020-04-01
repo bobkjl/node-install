@@ -2,32 +2,28 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
 function v2ray1(){
-    curl -fsSL https://get.docker.com -o get-docker.sh  && \
-    bash get-docker.sh
-    service docker restart 
-    systemctl enable docker
         echo " "
-        read -p "\033[42;37m 容器名字 \033[0m 参考格式 v2ray，容器名同一服务器不能重复:" name
+        read -p "容器名字 参考格式 v2ray，容器名同一服务器不能重复:" name
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入数据库IP \033[0m 参考格式 1.1.1.1:" MYSQLHOST
+        read -p "请输入数据库IP 参考格式 1.1.1.1:" MYSQLHOST
         echo " "
 
         echo " "
-        read -p "\033[42;37m 数据库用户名 \033[0m 参考格式 sspanel:" MYSQLDBNAME
+        read -p "数据库用户名 参考格式 sspanel:" MYSQLDBNAME
         echo " "
 
         echo " "
-        read -p "\033[42;37m 数据库密码 \033[0m 参考格式 sspanel:" MYSQLPASSWD
+        read -p "数据库密码 参考格式 sspanel:" MYSQLPASSWD
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入节点ID \033[0m 参考格式 6:" node_id
+        read -p "请输入节点ID 参考格式 6:" node_id
         echo " "
 
         echo " "
-        read -p "\033[42;37m 流媒体解锁IP \033[0m 没有不要填:" answer
+        read -p "流媒体解锁IP 没有不要填:" answer
           if [ -z "$answer" ]; then
         LDNS="8.8.8.8"
         else
@@ -36,48 +32,49 @@ function v2ray1(){
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入CF Key \033[0m:" CF_Key
+        read -p "请输入CF Key :" CF_Key
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入CF Email \033[0m:" CF_Email
+        read -p "请输入CF Email :" CF_Email
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入api_port端口 \033[0m 参考格式 2336，同服务器多节点不能重复[1-65535]:" api_port
+        read -p "请输入api_port端口 参考格式 2336，同服务器多节点不能重复[1-65535]:" api_port
         echo " "
+        
+        curl -fsSL https://get.docker.com -o get-docker.sh  && \
+        bash get-docker.sh
+        service docker restart 
+        systemctl enable docker
 
         docker run -d --name=$name -e speedtest=0 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e LDNS=$LDNS -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME="$MYSQLDBNAME" -e MYSQLUSR="$MYSQLUSR" -e MYSQLPASSWD="$MYSQLPASSWD"  -e MYSQLPORT=3306 -e CF_Key=$CF_Key -e CF_Email=$CF_Email --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray:4.22.1.8
 
         echo -e "\033[42;37m 安装完成 \033[0m"
 }
 function v2ray2(){
-    curl -fsSL https://get.docker.com -o get-docker.sh  && \
-    bash get-docker.sh
-    service docker restart 
-    systemctl enable docker
         echo " "
-        read -p "\033[42;37m 容器名字 \033[0m 参考格式 v2ray，容器名同一服务器不能重复:" name
+        read -p "容器名字 参考格式 v2ray，容器名同一服务器不能重复:" name
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入数据库IP \033[0m 参考格式 1.1.1.1:" MYSQLHOST
+        read -p "请输入数据库IP 参考格式 1.1.1.1:" MYSQLHOST
         echo " "
 
         echo " "
-        read -p "\033[42;37m 数据库用户名 \033[0m 参考格式 sspanel:" MYSQLDBNAME
+        read -p "数据库用户名 参考格式 sspanel:" MYSQLDBNAME
         echo " "
 
         echo " "
-        read -p "\033[42;37m 数据库密码 \033[0m 参考格式 sspanel:" MYSQLPASSWD
+        read -p "数据库密码 参考格式 sspanel:" MYSQLPASSWD
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入节点ID \033[0m 参考格式 6:" node_id
+        read -p "请输入节点ID 参考格式 6:" node_id
         echo " "
 
         echo " "
-        read -p "\033[42;37m 流媒体解锁IP \033[0m 没有不要填:" answer
+        read -p "流媒体解锁IP 没有不要填:" answer
           if [ -z "$answer" ]; then
         LDNS="8.8.8.8"
         else
@@ -86,16 +83,21 @@ function v2ray2(){
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入CF Key \033[0m:" CF_Key
+        read -p "请输入CF Key :" CF_Key
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入CF Email \033[0m:" CF_Email
+        read -p "请输入CF Email :" CF_Email
         echo " "
 
         echo " "
-        read -p "\033[42;37m 请输入api_port端口 \033[0m 参考格式 2336，同服务器多节点不能重复[1-65535]:" api_port
+        read -p "请输入api_port端口 参考格式 2336，同服务器多节点不能重复[1-65535]:" api_port
         echo " "
+        
+        curl -fsSL https://get.docker.com -o get-docker.sh  && \
+        bash get-docker.sh
+        service docker restart 
+        systemctl enable docker
 
         docker run -d --name=$name -e speedtest=0 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e LDNS=$LDNS -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME="$MYSQLDBNAME" -e MYSQLUSR="$MYSQLUSR" -e MYSQLPASSWD="$MYSQLPASSWD"  -e MYSQLPORT=3306 -e CF_Key=$CF_Key -e CF_Email=$CF_Email --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray_v3:go_pay
 
@@ -103,16 +105,16 @@ function v2ray2(){
 }
 function menu(){
     echo "###       v2ray tool v1.1.0       ###"
-    echo "###  By @DerrickZH ###"
-    echo "###    Update: 2020-04-01      ###"
+    echo "###       By @DerrickZH           ###"
+    echo "###       Update: 2020-04-01      ###"
     echo ""
-    echo -e "\033[41;33m 适用Rico v2ray后端 \033[0m"
+    echo -e "适用Rico v2ray后端"
     echo "---------------------------------------------------------------------------"
 
-    echo -e "\033[42;37m [1] \033[0m 安装付费版"
-    echo -e "\033[42;37m [2] \033[0m 安装免费版"
-#   echo -e "\033[42;37m [3] \033[0m 捐赠开发者"
-    echo -e "\033[41;33m 请输入选项以继续，ctrl+C退出 \033[0m"
+    echo -e "[1] 安装付费版"
+    echo -e "[2] 安装免费版"
+#   echo -e "[3] 捐赠开发者"
+    echo -e "请输入选项以继续，ctrl+C退出"
 
     opt=0
     read opt
@@ -126,7 +128,7 @@ function menu(){
         donate
     
     else
-        echo -e "\033[41;33m 输入错误 \033[0m"
+        echo -e "输入错误"
         bash ./node-install.sh
     fi
 }
