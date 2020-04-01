@@ -6,6 +6,7 @@ function Docker(){
        bash get-docker.sh
        service docker restart 
        systemctl enable docker
+       bash ./node-install.sh
 }
 
 function v2ray1(){
@@ -52,7 +53,7 @@ function v2ray1(){
         
         docker run -d --name=$name -e speedtest=0 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e LDNS=$LDNS -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME="$MYSQLDBNAME" -e MYSQLUSR="$MYSQLUSR" -e MYSQLPASSWD="$MYSQLPASSWD"  -e MYSQLPORT=3306 -e CF_Key=$CF_Key -e CF_Email=$CF_Email --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray:4.22.1.8
 
-        echo -e "\033[42;37m 安装完成 \033[0m"
+        echo -e "安装完成"
 }
 function v2ray2(){
         echo " "
@@ -98,7 +99,7 @@ function v2ray2(){
 
         docker run -d --name=$name -e speedtest=0 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e LDNS=$LDNS -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME="$MYSQLDBNAME" -e MYSQLUSR="$MYSQLUSR" -e MYSQLPASSWD="$MYSQLPASSWD"  -e MYSQLPORT=3306 -e CF_Key=$CF_Key -e CF_Email=$CF_Email --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray_v3:go_pay
 
-        echo -e "\033[42;37m 安装完成 \033[0m"
+        echo -e "安装完成"
 }
 function menu(){
     echo "###       v2ray tool v1.1.0       ###"
