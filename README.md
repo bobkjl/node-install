@@ -1,5 +1,5 @@
 # node-install
-一款适配Rico后端对接的工具箱
+一款适配sspanel的后端对接的工具箱
 
 ### 使用方法
 ```shell
