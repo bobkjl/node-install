@@ -1,7 +1,7 @@
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
-sh_ver="1.2.0"
+sh_ver="1.2.1"
 github="raw.githubusercontent.com/bobkjl/node-install/master"
 
 # 设置字体颜色函数
