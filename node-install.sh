@@ -88,7 +88,9 @@ install_v2ray1(){
         echo "程序：v2ray后端对接                    "
         echo "系统：Centos7.x、Ubuntu、Debian等                              "
         echo "==============================================================="
-    
+        echo
+        green "Netflix解锁设置，示例：47.240.68.180 #【如果没有，可以联系TG:@DerrickZH购买】"
+        echo
         echo ————————————选择v2ray安装版本————————————
         green "[1] Rico付费版"
         green "[2] Rico免费版"
