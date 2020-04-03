@@ -183,7 +183,7 @@ install_superbench(){
 }
 
 backend_docking_set(){
-    white "本脚本支持 green "webapi" 和 green "数据库对接" 两种对接方式"
+    white "本脚本支持 ${green} "webapi" 和 ${green} "数据库对接" 两种对接方式"
     green "请选择对接方式(默认webapi)"
     yellow "[1] webapi对接(准备好域名就行)"
     yellow "[2] 数据库对接（需要提供完整的ip、数据库名、用户名、密码，且mysql要允许所有ip访问）"
