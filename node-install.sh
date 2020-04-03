@@ -5,6 +5,8 @@ sh_ver="1.2.0"
 github="raw.githubusercontent.com/bobkjl/node-install/master"
 
 # 设置字体颜色函数
+Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
+
 function blue(){
     echo -e "\033[34m\033[01m $1 \033[0m"
 }
@@ -190,7 +192,7 @@ backend_docking_set(){
     [[ -z "${vnum}" ]] && vnum="1" 
 	if [[ "${vnum}" == "1" ]]; then
         green "当前对接模式：webapi"
-        green "使用前请准备好 red "节点ID、前端网站ip或url、前端token" "
+        green "使用前请准备好 ${Red_font_prefix}节点ID、前端网站ip或url、前端token${Font_color_suffix}"
         green "请输入网址，示例：https://google.com (网站域名，与config里的baseurl保持一致)"
         read -p "容器名字 参考格式 ssrmu，容器名同一服务器不能重复:" name
         read -p "请输入网址:" web_url
@@ -209,7 +211,7 @@ backend_docking_set(){
         echo 安装总耗时:$[$end-$start]"秒"           
 	elif [[ "${vnum}" == "2" ]]; then
         green "当前对接模式：数据库对接"
-        green "使用前请准备好 red "节点ID、前端网站ip、数据库ROOT密码、数据库名称" "
+        green "使用前请准备好 ${Red_font_prefix}节点ID、前端网站ip、数据库ROOT密码、数据库名称${Font_color_suffix}"
         green "请输入前端网网站IP，示例：23.94.13.115 (前端服务器IP地址)"
         read -p "容器名字 参考格式 ssrmu，容器名同一服务器不能重复:" name
         read -p "请输入ip:" web_ip
@@ -242,7 +244,7 @@ backend_docking_netflix(){
     [[ -z "${vnum}" ]] && vnum="1" 
 	if [[ "${vnum}" == "1" ]]; then
         green "当前对接模式：webapi"
-        green "使用前请准备好 red "节点ID、前端网站ip或url、前端token" "
+        green "使用前请准备好 ${Red_font_prefix}节点ID、前端网站ip或url、前端token${Font_color_suffix}"
         green "请输入网址，示例：https://google.com (网站域名，与config里的baseurl保持一致)"
         read -p "请输入网址:" web_url
         red "Netflix解锁设置，示例：47.240.68.180 （如果没有，可回车，保留系统默认）"
@@ -263,7 +265,7 @@ backend_docking_netflix(){
         echo 安装总耗时:$[$end-$start]"秒"           
 	elif [[ "${vnum}" == "2" ]]; then
         green "当前对接模式：数据库对接"
-        green "使用前请准备好 red "节点ID、前端网站ip、数据库ROOT密码、数据库名称" "
+        green "使用前请准备好 ${Red_font_prefix}节点ID、前端网站ip、数据库ROOT密码、数据库名称${Font_color_suffix}"
         green "请输入前端网网站IP，示例：23.94.13.115 (前端服务器IP地址)"
         read -p "请输入ip:" web_ip
         red "Netflix解锁设置，示例：47.240.68.180 （如果没有，可回车，保留系统默认）"
@@ -362,7 +364,7 @@ install_ssr(){
 
 start_menu(){
 clear
-    echo -e " sspanel 后端一键安装管理脚本 red"[v${sh_ver}]" "
+    echo -e " sspanel 后端一键安装管理脚本 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}"
     echo "###     sspanel node tool         ###"
     echo "###       By @DerrickZH           ###"
     echo "###     Update: 2020-04-03       ###"
