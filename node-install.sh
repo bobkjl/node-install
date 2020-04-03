@@ -360,8 +360,7 @@ install_ssr(){
 
 start_menu(){
 clear
-echo && echo -e " sspanel 后端一键安装管理脚本 ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}"
-
+    echo -e " sspanel 后端一键安装管理脚本 red"[v${sh_ver}]" "
     echo "###     sspanel node tool         ###"
     echo "###       By @DerrickZH           ###"
     echo "###     Update: 2020-04-03       ###"
