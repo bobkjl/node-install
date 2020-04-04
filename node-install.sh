@@ -112,7 +112,11 @@ install_v2ray1(){
         echo " "
 
         echo " "
-        read -p "数据库用户名 参考格式 sspanel:" MYSQLDBNAME
+        read -p "数据库名 参考格式 sspanel:" MYSQLDBNAME
+        echo " "
+        
+        echo " "
+        read -p "数据库用户名 参考格式 sspanel:" MYSQLUSR
         echo " "
 
         echo " "
