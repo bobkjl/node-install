@@ -1,7 +1,7 @@
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin:/sbin
 export PATH
-sh_ver="1.2.1"
+sh_ver="1.2.2"
 github="raw.githubusercontent.com/bobkjl/node-install/master"
 
 # 设置字体颜色函数
@@ -128,6 +128,12 @@ install_v2ray1(){
         echo " "
 
         echo " "
+        read -p "请输入api_port端口 参考格式 2336，同服务器多节点不能重复[1-65535]:" api_port
+        echo " "
+
+    if [ "$opt" = "1" ]; then
+
+        echo " "
         read -p "流媒体解锁IP 没有不要填:" answer
           if [ -z "$answer" ]; then
         LDNS="8.8.8.8"
@@ -143,20 +149,15 @@ install_v2ray1(){
         echo " "
         read -p "请输入CF Email :" CF_Email
         echo " "
-
-        echo " "
-        read -p "请输入api_port端口 参考格式 2336，同服务器多节点不能重复[1-65535]:" api_port
-        echo " "
-
-    if [ "$opt" = "1" ]; then
          install_tool
          check_docker
-         docker run -d --name=$name -e speedtest=0 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e LDNS=$LDNS -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME="$MYSQLDBNAME" -e MYSQLUSR="$MYSQLUSR" -e MYSQLPASSWD="$MYSQLPASSWD"  -e MYSQLPORT=3306 -e CF_Key=$CF_Key -e CF_Email=$CF_Email --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray:4.22.1.8
+         docker run -d --name=$name -e speedtest=0 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e LDNS=$LDNS -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME=$MYSQLDBNAME -e MYSQLUSR=$MYSQLUSR -e MYSQLPASSWD=$MYSQLPASSWD -e MYSQLPORT=3306 -e CF_Key=$CF_Key -e CF_Email=$CF_Email --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray:4.22.1.11
 
     else [ "$opt" = "2" ];
          install_tool
          check_docker
-         docker run -d --name=$name -e speedtest=0 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e LDNS=$LDNS -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME="$MYSQLDBNAME" -e MYSQLUSR="$MYSQLUSR" -e MYSQLPASSWD="$MYSQLPASSWD"  -e MYSQLPORT=3306 -e CF_Key=$CF_Key -e CF_Email=$CF_Email --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray_v3:go_pay
+         docker run -d --name=$name -e speedtest=6 -e api_port=$api_port -e usemysql=1 -e downWithPanel=0 -e node_id=$node_id -e sspanel_url= -e key= -e MYSQLHOST=$MYSQLHOST -e MYSQLDBNAME=$MYSQLDBNAME -e MYSQLUSR=$MYSQLUSR -e MYSQLPASSWD=$MYSQLPASSWD -e MYSQLPORT=3306 --log-opt max-size=10m --log-opt max-file=5 --network=host --restart=always bobkjl/v2ray_v3:go_pay
+
 
     fi
 
